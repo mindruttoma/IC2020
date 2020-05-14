@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {moveIn, fallIn} from '../router.animation';
-
+import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'aboutus',
@@ -10,11 +11,30 @@ import {moveIn, fallIn} from '../router.animation';
   
 })
 export class AboutusComponent implements OnInit {
-  state: string= '';
 
-  constructor() { }
+  user: firebase.User;
 
-  ngOnInit() {
-  }
+  constructor(private auth: AuthService, 
+    private router: Router) { }
+
+
+    ngOnInit() {
+      this.auth.getUserState()
+        .subscribe( user => {
+          this.user = user;
+        })
+    }
+  
+    login() {
+      this.router.navigate(['/login']);
+    }
+  
+    logout() {
+      this.auth.logout();
+    }
+  
+    register() {
+      this.router.navigate(['/register']);
+    }
 
 }

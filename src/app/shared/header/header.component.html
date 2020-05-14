@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">	
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <mat-toolbar>
     <button mat-fab color="warn" [matMenuTriggerFor]="navMenu" >
     <mat-icon>local_phone</mat-icon>
@@ -5,17 +7,27 @@
 <span class="example-icon"></span>
 <mat-icon>{{iconTitle}}</mat-icon>
 <span class="example-icon"></span>
-    {{pageTitle}}
+    <!--{{pageTitle}}  -->
+    <p id="icon" style="text-shadow: rgb(172, 172, 172) 0px 0px 0px, rgb(177, 177, 177) 1px 1px 0px, rgb(183, 183, 183) 2px 2px 0px, rgb(188, 188, 188) 3px 3px 0px, rgb(194, 194, 194) 4px 4px 0px, rgb(200, 200, 200) 5px 5px 0px, rgb(205, 205, 205) 6px 6px 0px, rgb(211, 211, 211) 7px 7px 0px, rgb(217, 217, 217) 8px 8px 0px, rgb(222, 222, 222) 9px 9px 0px, rgb(228, 228, 228) 10px 10px 0px, rgb(234, 234, 234) 11px 11px 0px, rgb(239, 239, 239) 12px 12px 0px; font-size: 31px; color: rgb(255, 92, 33); height: 80px; width: 112px; line-height: 100px; border-radius: 0%; text-align: center; background-color: rgb(245, 245, 245);"  routerLink="/aboutus" > XStore </p> 
     <span class="example-spacer"></span> 
-    <mat-icon [color]="userStatusColor" routerLink="/product">shop</mat-icon>   
-    <span class="example-icon"></span>
+    
+    
+    
     <mat-icon [color]="userStatusColor" routerLink="/settings"  > portrait</mat-icon>
+    <span class="example-icon"></span>
+    <mat-icon [color]="userStatusColor" routerLink="/admin"  >work_outline</mat-icon>
     <span class="example-icon"></span>
     <mat-icon matBadge="{{counter}}" matBadgePosition="before" matBadgeColor="blue">shopping_cart</mat-icon>
     <span class="example-icon"></span>    
     <mat-icon [matMenuTriggerFor]="helpMenu">help</mat-icon>
     <span class="example-icon"></span>    
-  
+    
+    <button class="btn btn-primary mr-2" background-color= "#f44336" *ngIf="!user" (click)="register()">Register</button>
+<button class="btn btn-primary" *ngIf="user" (click)="logout()">Logout</button>
+<button class="btn btn-primary" *ngIf="!user" (click)="login()">Login</button>
+
+
+
     
     <mat-menu #helpMenu="matMenu">
         <div *ngIf="helpTitle=='Settingspagehelp'">
@@ -28,11 +40,11 @@
         {{helpTitle}}
       </mat-menu>
       <mat-menu #navMenu="matMenu">
-       <a href="{{configData.fblink}}" target="_blank"><button mat-menu-item><mat-icon svgIcon="fb"></mat-icon></button></a>
+       <a href="" target="_blank"><button mat-menu-item><mat-icon svgIcon="fb"></mat-icon></button></a>
        <a href="" target="_blank"><button mat-menu-item><mat-icon svgIcon="linkedin"></mat-icon></button></a>
        <a href="" target="_blank"><button mat-menu-item><mat-icon svgIcon="git"></mat-icon></button></a>
        <button mat-menu-item routerLink="/aboutus"><mat-icon>Info</mat-icon></button>
        <button mat-menu-item routerLink="/admin"><mat-icon>Settings</mat-icon></button>
       </mat-menu>
-
+ 
 </mat-toolbar>

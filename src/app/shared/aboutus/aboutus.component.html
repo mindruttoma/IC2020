@@ -1,7 +1,67 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">	
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+
 <header pageTitle="Home" iconTitle="info" helpTitle="Home page" ></header>
+
 <mat-tab-group>
-    <mat-tab label="Home"> Content 1 </mat-tab>
-    <mat-tab label="Smartphones"> Content 2 </mat-tab>
-    <mat-tab label="Accessory"> Content 3 </mat-tab>
-    <mat-tab label="Reviews"> Content 4 </mat-tab>
+    <mat-tab label="Home"> <img class="d-block img-fluid" src="./assets/icons/home.jpg" width="1519"></mat-tab>
+    <mat-tab label="Smartphones" routerLink="active"> <product-grid></product-grid> </mat-tab>
+    <mat-tab label="Accessory" routerLink="active"><accessory-grid></accessory-grid>  </mat-tab>
+    <mat-tab label="Reviews"> 
+      
+      <section id="contact">
+        <div class="container">
+         <h1>Reviews</h1>
+         <div class="row">
+           <div class="col-md-6">
+             <form class="contact-form" action="contact.php" method="post">
+               <div class="form-group">
+                 <input type="text" name="nume" class="form-control" placeholder="Name" required>
+               </div>
+               <div class="form-group">
+                 <input type="number" name="telefon" class="form-control" placeholder="Phone" required>
+               </div>
+               <div class="form-group">
+                 <input type="email" name="email" class="form-control" placeholder="Email" required>
+               </div>
+               <div class="form-group">
+                 <textarea class="form-control" name="mesaj" rows="4" placeholder="Message" required></textarea>
+               </div>
+               <button type="submit" class="btn btn-primary">Send Message</button>
+             </form>
+ 
+              
+           
+            
+                
+           </div>
+ 
+           <div class="col-md-6 contact-info">
+             <div class="follow"><b>Adress:</b><i class="fa fa-map-marker"></i>Bdul 1 Decembrie 1918, nr 179</div>
+           
+             <div class="follow"><b>Phone:</b><i class="fa fa-phone"></i>0365 424 490</div>
+             
+             <div class="follow"><b>Email:</b><i class="fa fa-envelope-o"></i>xstore@gmail.com</div>
+           
+             <div class="follow"><label><b>Social Media:</b></label>
+               <a href="http://facebook.com"><i class="fa fa-facebook"></i></a>
+               <a href="http://youtube.com"><i class="fa fa-youtube-play"></i></a>
+               <a href="http://twitter.com"><i class="fa fa-twitter"></i></a>
+               <a href="https://aboutme.google.com"><i class="fa fa-google-plus"></i></a>
+ 
+             </div>	
+           </div>
+         </div>
+       </div>
+   </section>
+    
+    
+    
+    
+    
+    
+    </mat-tab>
   </mat-tab-group>
+ 

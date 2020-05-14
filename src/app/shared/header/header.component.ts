@@ -1,10 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BackendService } from './../../services/backend.service';
+import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
+import {moveIn, fallIn} from '../router.animation';
 
 @Component({
   selector: 'header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  animations: [moveIn(), fallIn()]
 })
 export class HeaderComponent implements OnInit {
 
@@ -15,21 +18,29 @@ export class HeaderComponent implements OnInit {
   counter = 0;
   userStatusColor = "warn";
 
-  constructor(private _backendservice: BackendService) { }
+  user: firebase.User;
 
-  ngOnInit() {
-    this.counter = 0;
-    this.configData = this._backendservice.getConfig();
-    this._backendservice.getCartTotal().subscribe(
-      (res) => {
-        this.counter = res;
-      }
-     );
-     this._backendservice.getUserStatus().subscribe(
-      (res) => {
-        this.userStatusColor= res ? "primary" : "warn";
-      }
-     );
+  constructor(private auth: AuthService, 
+    private router: Router) { }
+
+
+    ngOnInit() {
+      this.auth.getUserState()
+        .subscribe( user => {
+          this.user = user;
+        })
+    }
+  
+    login() {
+      this.router.navigate(['/login']);
+    }
+  
+    logout() {
+      this.auth.logout();
+    }
+  
+    register() {
+      this.router.navigate(['/register']);
     }
   }
 

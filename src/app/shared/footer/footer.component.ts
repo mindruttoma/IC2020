@@ -1,15 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+  user: firebase.User;
+  constructor(private auth: AuthService, 
+    private router: Router) { }
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit() {
+      this.auth.getUserState()
+        .subscribe( user => {
+          this.user = user;
+        })
+    }
+  
+    login() {
+      this.router.navigate(['/login']);
+    }
+  
+    logout() {
+      this.auth.logout();
+    }
+  
+    register() {
+      this.router.navigate(['/register']);
+    }
+
 
 }

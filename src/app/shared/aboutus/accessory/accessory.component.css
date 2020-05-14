@@ -1,0 +1,89 @@
+
+div
+{
+    display: inline-block;
+    min-height: 40px;
+    max-height: 50px;
+}
+
+.example-card 
+{
+    max-width: 350px;
+    background-color: white;
+}
+
+mat-card-content
+{
+    color: black;
+}
+
+mat-card
+{
+    margin: 5px;
+}
+
+a
+{
+    color: darkorange;
+    background-color: white;
+    border-color: white;
+    border-width: 2px;
+    margin-left: auto;
+}
+.btn
+{
+	border: 1px solid white;
+	padding: 10px 30px;
+	color: white;
+	text-decoration: none;
+	margin-right: 5px;
+	font-size: 13px;
+	text-transform: uppercase;
+}
+.btn-one
+{
+	background-color: darkorange;
+	font-family: "Roboto", sans-serif;
+
+}
+a:hover
+{
+    border-color: black;
+}
+
+img
+{
+	filter: grayscale(0.5);
+    height: 100%;
+}
+
+img:hover
+{
+	filter: grayscale(0);
+	cursor: pointer;
+}
+
+span
+{
+    color: black;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+p
+{
+    height: 30px;
+}
+
+
+  
+.right 
+{
+    text-align: right /* only needed for the table version */
+}
+  
+.flex 
+{
+    display: flex;
+    justify-content: space-between;
+}
